@@ -247,6 +247,38 @@ body {
     line-height: 1.6;
 }
 
+/* ===== Contact Link ===== */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 180, 216, 0.3);
+    transform: translateY(-2px);
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.contact-email {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-cyan);
+}
+
 /* ===== Footer ===== */
 .footer {
     padding: 2rem;
