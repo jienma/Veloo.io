@@ -1,74 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Veloo.io - Something extraordinary is coming. We're crafting something special.">
-    <meta name="theme-color" content="#0a0a0f">
-    
-    <title>Veloo.io | Coming Soon</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    
+    <meta name="description"
+        content="Velocity - Mass Video Generation. The rendering engine for personalized video at scale.">
+    <meta name="theme-color" content="#f97316">
+    <title>Velocity | Private Beta</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=1.0.1">
-    
-    <!-- Cache Control -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="styles.css?v=cachebust_002">
 </head>
+
 <body>
-    <!-- Animated Background -->
-    <div class="bg-glow">
-        <div class="glow-orb glow-orb-1"></div>
-        <div class="glow-orb glow-orb-2"></div>
-        <div class="glow-orb glow-orb-3"></div>
-    </div>
-    
-    <!-- Main Content -->
-    <main class="container">
-        <div class="content">
-            <!-- Logo -->
-            <h1 class="logo">
-                <span class="logo-veloo">Veloo</span><span class="logo-io">.io</span>
-            </h1>
-            
-            <!-- Stealth Mode Badge -->
-            <div class="badge">
-                <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 1L13.5 9L12 12L10.5 9L12 1Z" fill="currentColor"/>
-                    <path d="M12 23L10.5 15L12 12L13.5 15L12 23Z" fill="currentColor"/>
-                    <path d="M1 12L9 10.5L12 12L9 13.5L1 12Z" fill="currentColor"/>
-                    <path d="M23 12L15 13.5L12 12L15 10.5L23 12Z" fill="currentColor"/>
-                </svg>
-                <span>STEALTH MODE</span>
-            </div>
-            
-            <!-- Headline -->
-            <h2 class="headline">
-                Something <span class="highlight">extraordinary</span>
-                <br>is coming
-            </h2>
-            
-            <!-- Subtext -->
-            <p class="subtext">We're crafting something special.</p>
-            
-            <!-- Contact -->
-            <a href="mailto:info@veloo.io" class="contact-link">
-                <span class="contact-label">Contact us</span>
-                <span class="contact-email">info@veloo.io</span>
+    <nav class="nav">
+        <a href="#" class="logo">
+            <div class="logo-dot"></div>
+            Veloo
+        </a>
+    </nav>
+
+    <main class="hero">
+        <div class="badge">
+            <div class="badge-dot"></div>
+            Now in Private Beta
+        </div>
+
+        <h1>
+            Velocity<br>
+            <span>Automating creative workflows</span>
+        </h1>
+
+
+
+        <div class="cta-group">
+            <a href="#" id="openAccessBtn" class="btn btn-primary">
+                Request Access
+            </a>
+            <a href="docs.html" class="btn btn-secondary">
+                Documentation
             </a>
         </div>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Veloo. All rights reserved.</p>
-    </footer>
-</body>
-</html>
 
+        <div class="contact-info">
+            Or email us directly at <a href="mailto:info@veloo.io">info@veloo.io</a>
+        </div>
+    </main>
+
+
+    <footer>
+        &copy; 2024 Veloo. All rights reserved.
+    </footer>
+
+    <!-- Request Access Modal -->
+    <div class="modal-backdrop" id="accessModal">
+        <div class="modal">
+            <button class="close-modal" id="closeModal">&times;</button>
+
+            <div id="modalFormContent">
+                <div class="modal-header">
+                    <h2>Request Access</h2>
+                    <p>Join the private beta waitlist.</p>
+                </div>
+
+                <!-- FORM: Replace ACTION_URL with your Formspree Endpoint -->
+                <form id="accessForm" action="https://formspree.io/f/xbldwgwq" method="POST">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="Jane Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Work Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required
+                            placeholder="jane@company.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="usecase">Intended Use Case</label>
+                        <textarea id="usecase" name="message" class="form-input"
+                            placeholder="We are building a video personalization tool for..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Join Waitlist</button>
+                </form>
+            </div>
+
+            <div id="modalSuccess" class="success-message">
+                <span class="success-icon">✓</span>
+                <h3>Request Sent!</h3>
+                <p>Thanks for your interest. We'll be in touch shortly.</p>
+                <button class="btn btn-secondary" onclick="closeModal()" style="margin-top: 1rem">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('accessModal');
+        const openBtn = document.getElementById('openAccessBtn');
+        const closeBtn = document.getElementById('closeModal');
+        const form = document.getElementById('accessForm');
+        const formContent = document.getElementById('modalFormContent');
+        const successMsg = document.getElementById('modalSuccess');
+
+        // Note: Replace this URL with your own Formspree Form ID
+        // Currently using a placeholder ID 'xbldwgwq' just for structure
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mqearpdn';
+
+        function openModal(e) {
+            e.preventDefault();
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            // Reset form after delay
+            setTimeout(() => {
+                form.reset();
+                formContent.style.display = 'block';
+                successMsg.style.display = 'none';
+            }, 300);
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close on backdrop click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Handle Form Submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formContent.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    alert("Oops! There was a problem submitting your form");
+                }
+            } catch (error) {
+                alert("Oops! There was a problem submitting your form");
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
