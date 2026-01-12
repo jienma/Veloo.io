@@ -182,6 +182,79 @@ p {
     transform: translateY(-1px);
 }
 
+/* Disabled Button (Coming Soon) */
+.btn-disabled {
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    position: relative;
+    /* Ensure no click events trigger navigation if href existed, 
+       but allows hover for tooltip */
+}
+
+/* Tooltip */
+.btn-disabled::after {
+    content: "Coming Soon";
+    position: absolute;
+    bottom: 120%;
+    /* Moved up slightly */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1a1a1a;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    z-index: 100;
+    /* Ensure on top */
+}
+
+/* Tooltip Arrow */
+.btn-disabled::before {
+    content: '';
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: #1a1a1a;
+    border-right: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.btn-disabled:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.btn-disabled:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(6px) rotate(45deg);
+}
+
+/* Override all hover effects */
+.btn.btn-disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-muted) !important;
+}
+
 .contact-info {
     margin-top: 1.5rem;
     color: var(--text-muted);
