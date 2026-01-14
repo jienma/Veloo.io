@@ -98,7 +98,7 @@
                 CONTENT_DIV.innerHTML = `
                     <div style="padding: 1rem 2rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; background: rgba(5, 5, 7, 0.95);">
                         <span style="font-weight: 600; color: var(--text-primary);">API Reference</span>
-                        <a href="https://api.veloo.io/v1/docs" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <a href="https://api.veloo.io/v1/simple" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
                             Open in new tab 
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                         </a>
@@ -111,7 +111,7 @@
                 `;
 
                 const apiContainer = document.getElementById('api-container');
-                const apiUrl = 'https://api.veloo.io/v1/docs';
+                const apiUrl = 'https://api.veloo.io/v1/simple';
 
                 try {
                     // Check connectivity (no-cors mode is enough to check if server is reachable)
