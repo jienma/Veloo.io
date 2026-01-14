@@ -1,24 +1,18 @@
-<link rel="stylesheet" href="stylesheets/extra.css" />
-# Velocity Essentials
 
-*Velocity is the engine that powers next-generation creative applications. Embedding this API into your product provides an enormous boost in speed and scalability.*
-
-## What is Velocity
-
-Velocity is an **API-driven motion graphics video rendering platform**, designed from the ground up for **blazing performance** (on average 10× faster than Adobe After Effects) and **massive scalability**.
-At the core of the engine is a GPU-accelerated rendering pipeline built on top of modern, industry-standard low-level graphics and video encoding APIs.
+# About Velocity Platform 
 
 
-[provide some benchmarks of templates rendering with Velocity vs AE]
+Velocity Platform is an **API-driven motion graphics video rendering platform**, designed from the ground up for **blazing performance** (on average 10× faster than Adobe After Effects) and **massive scalability**.
+At the core of the engine is a GPU-accelerated,sophisticated rendering pipeline built on top of modern, industry-standard low-level graphics and video encoding APIs.
 
-The Velocity API enables server-side rendering of videos from Adobe After Effects (AE) motion templates exported as Lottie files. While Velocity uses the Lottie format as a base, it has significantly fewer limitations than standard Lottie implementations(see the [AE Compatibility](ae.md) page).
+The API enables server-side rendering of videos from Adobe After Effects (AE) motion templates exported as Lottie files. While Velocity uses Lottie Files format as a base, it has significantly fewer limitations than standard Lottie implementations(see the [AE Compatibility](ae.md) page).
 Our development team is continuously extending support for advanced AE features and visual effects, with the goal of reaching core feature parity with AE in the near future.  
 
 *Note: Full AE feature coverage is not planned, as rendering speed remains a top priority for the product.*
 
 **Classic Rendering Pipeline**
 
-In addition to AE-based content, Velocity also supports what we call “**Classic Rendering**” — a pipeline for layer-based rendering of images, text, and vector shapes, independent of AE-specific features.
+In addition to AE-based content, Velocity API also supports what we call “**Classic Rendering**” — a pipeline for layer-based rendering of images, text, and vector shapes, independent of AE-specific features.
 This pipeline can be used by developers who author graphics using HTML5 APIs such as Canvas 2D, or who import graphics from other sources.
 
   
@@ -52,8 +46,8 @@ For more details, see the [Getting Started](tutorials.md) section.
 
 **Fonts**
 
-- **TrueType (TTF)**  
-- **OpenType (OTF)**
+Velocity platform  **does not allow uploading font files**. You must use font families from the list of supported fonts provided by the platform. All fonts we provide can be downloaded for free from [Google Fonts](https://fonts.google.com/).  
+[Here](fonts.md) you can find the list of all font families currently supported by Velocity Platform.
 
 
 ## Output Formats

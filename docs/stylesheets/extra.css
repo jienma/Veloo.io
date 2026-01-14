@@ -1,0 +1,140 @@
+/* Center header text on those CSV tables */
+table.csv-table thead th {
+  text-align: center !important;
+
+}
+
+/* Optional: custom header fill/text color */
+table.csv-table thead th {
+  background: #7f8b9b;  /* adjust for your dark theme if needed */
+  color: #f0f0f0;
+}
+
+/* 3rd data row (after the header)
+that's an example how to style a specific row
+*/
+table.table.csv-table tbody tr:nth-child(9) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(20) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(27) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(33) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(45) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(53) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(82) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+table.table.csv-table tbody tr:nth-child(94) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+table.table.csv-table tbody tr:nth-child(123) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+table.table.csv-table tbody tr:nth-child(130) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+table.table.csv-table tbody tr:nth-child(133) td {
+  font-weight: 700;           /* bold */
+  background: #7f8b9b;       /* optional highlight */
+  text-align: center !important;
+}
+
+/* Fonts table styling - no row highlights, uniform rows including header */
+table.fonts-table thead th {
+  /* Remove special header styling - make it look like regular rows */
+  background: inherit !important;
+  color: inherit !important;
+  text-align: left !important;
+  font-weight: inherit !important;
+}
+
+/* Ensure no row highlights are applied to fonts-table */
+table.table.fonts-table tbody tr:nth-child(n) td {
+  font-weight: inherit !important;
+  background: inherit !important;
+  text-align: inherit !important;
+}
+
+/* docs/stylesheets/extra.css */
+.md-content .md-typeset h1 { 
+  margin-top: 2.2rem;
+  border-bottom: 2px solid rgba(0,0,255,.25);
+}
+.md-content .md-typeset h2 { 
+  margin-top: 1.4rem;
+  opacity: .9;
+}
+
+.video-embed {
+  width: 100%;
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Modern browsers: preserves ratio cleanly */
+.video-embed.ratio-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.video-embed.ratio-4x3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* Fallback for older browsers */
+@supports not (aspect-ratio: 16 / 9) {
+  .video-embed.ratio-16x9,
+  .video-embed.ratio-4x3 {
+    position: relative;
+    height: 0;
+  }
+
+  .video-embed.ratio-16x9 { padding-bottom: 56.25%; } /* 9/16 */
+  .video-embed.ratio-4x3  { padding-bottom: 75%; }    /* 3/4 */
+
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+  }
+}
+  

@@ -1,10 +1,10 @@
 # Adobe After Effects features support table.
-Please note, that the features marked 'No" are under development or planned to be. Features marked "Unsupported"
+Please note, that the features marked "No" are under development or planned to be. Features marked "Unsupported"
 are not planned to be added to the rendering engine.
 
- 
-| Layer types: | Supported | Notes |
-|---|---|---|
+### Layer types
+| Layer types | Supported | Notes |
+| :--- | :--- | :--- |
 | Solid | Yes | |
 | Image | Yes | |
 | Text | Yes | |
@@ -13,7 +13,10 @@ are not planned to be added to the rendering engine.
 | Null | Yes | |
 | Camera | Yes | 1 and 2 nodes |
 | Composition | Yes | |
-| **Transforms** | **Supported** | **Notes** |
+
+### Transforms
+| Transforms | Supported | Notes |
+| :--- | :--- | :--- |
 | Position (2d/3d) | Yes | |
 | Position (2d/3d) separated | No | |
 | Rotation (2d/3d) | Yes | |
@@ -23,21 +26,27 @@ are not planned to be added to the rendering engine.
 | Parenting | Yes | |
 | Opacity | Yes | |
 | Auto Orient | No | |
-| | | |
-| **Animation** | **Supported** | **Notes** |
+
+### Animation
+| Animation | Supported | Notes |
+| :--- | :--- | :--- |
 | Linear interpolation | Yes | |
 | Bezier interpolation | Yes | |
 | Hold interpolation | Yes | |
 | Spatial Bezier Interpolation | ? | |
 | Rove Across Time | No | |
-| | | |
-| **Trackmatte** | **Supported** | **Notes** |
+
+### Trackmatte
+| Trackmatte | Supported | Notes |
+| :--- | :--- | :--- |
 | Alpha Matte | Yes | |
 | Alpha Inverted Matte | Yes | |
 | Luma Matte | Yes | |
 | Luma Inverted Matte | Yes | |
-| | | |
-| **Mask** | **Supported** | **Notes** |
+
+### Mask
+| Mask | Supported | Notes |
+| :--- | :--- | :--- |
 | Mask Opacity | Yes | |
 | Add | Yes | |
 | Subtract | Yes | |
@@ -49,15 +58,20 @@ are not planned to be added to the rendering engine.
 | Feather | No | |
 | Multiple masks per Layer | Yes | |
 | Path animation | Yes | |
-| **Shape layer specific** | **Supported** | **Notes** |
+
+### Shape layer specific
+| Shape layer specific | Supported | Notes |
+| :--- | :--- | :--- |
 | Multiple shape groups | No | Only a single group |
 | Nested shape groups | No | |
 | Multiple paths in a group | Yes | |
 | Multiple strokes and fills in a group | Yes | |
 | Fill Rules | Yes | |
 | Path animation | Yes | |
-| | | |
-| **Blend modes** | **Supported** | **Notes** |
+
+### Blend modes
+| Blend modes | Supported | Notes |
+| :--- | :--- | :--- |
 | Normal | Yes | |
 | Multiply | Yes | |
 | Screen | Yes | |
@@ -85,8 +99,10 @@ are not planned to be added to the rendering engine.
 | Subtract | No | |
 | Divide | No | |
 | Lighter Color | No | |
-| | | |
-| **Text** | **Supported** | **Notes** |
+
+### Text
+| Text | Supported | Notes |
+| :--- | :--- | :--- |
 | Alignment | Yes | |
 | Fill | Yes | |
 | Stroke | No | |
@@ -98,7 +114,10 @@ are not planned to be added to the rendering engine.
 | Ligatures | No | |
 | Emojis | No | |
 | Text along path | No | |
-| **Text Range Selection/Animation** | **Supported** | **Notes** |
+
+### Text Range Selection/Animation
+| Text Range Selection/Animation | Supported | Notes |
+| :--- | :--- | :--- |
 | Position | Yes | |
 | Pivot | No | |
 | Rotation | Yes | |
@@ -107,7 +126,10 @@ are not planned to be added to the rendering engine.
 | Tracking | No | |
 | Fill Color | Yes | |
 | Stroke Color | No | |
-| | | |
+
+### Units (Text Range)
+| Units | Supported | Notes |
+| :--- | :--- | :--- |
 | Units - percentage | Yes | |
 | Units - index | Yes | |
 | Based On - Characters | Yes | |
@@ -126,17 +148,22 @@ are not planned to be added to the rendering engine.
 | Shape - Smooth | Yes | |
 | Shape - Ramp up | Yes | |
 | Shape - Ramp down | Yes | |
-| | | |
-| **Time** | **Supported** | **Notes** |
+
+### Time
+| Time | Supported | Notes |
+| :--- | :--- | :--- |
 | Time stretch | Yes | |
 | Time remap | Yes | |
 | Protected regions | No | |
-| | | |
-| | | |
-| **Image Styles** | **Supported** | **Notes** |
+
+### Image Styles
+| Image Styles | Supported | Notes |
+| :--- | :--- | :--- |
 | ----------------- | No | No image styles supported |
-| | | |
-| **Effects** | **Supported** | **Notes** |
+
+### Effects
+| Effects | Supported | Notes |
+| :--- | :--- | :--- |
 | Motion blur | Yes | |
 | Gaussian blur | Yes | |
 | Corner Pin | No | |

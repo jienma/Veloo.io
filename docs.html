@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="docs/stylesheets/extra.css">
 
     <!-- Markdown Parser & Highlighting -->
     <script type="module">
@@ -49,6 +50,7 @@
         async function loadContent() {
             const hash = window.location.hash.replace('#', '');
             let targetFile = DEFAULT_PAGE;
+            let isApi = false;
 
             // Find active link
             let activeLink = null;
@@ -60,6 +62,12 @@
                 }
             });
 
+            // Handle API special case
+            if (hash === 'api') {
+                isApi = true;
+                activeLink = document.querySelector('a[href="#api"]');
+            }
+
             // Default to Home if no hash match, or if hash is 'home' or empty
             if (!activeLink && (hash === '' || hash === 'home')) {
                 activeLink = document.querySelector('a[href="#home"]');
@@ -67,6 +75,55 @@
             }
 
             if (activeLink) activeLink.classList.add('active');
+
+            const mainContent = document.querySelector('.main-content');
+
+            if (isApi) {
+                // Remove padding for full-screen iframe experience
+                // Remove padding for full-screen iframe experience
+                mainContent.style.padding = '0';
+                mainContent.style.overflow = 'hidden';
+                mainContent.style.display = 'flex';
+                mainContent.style.flexDirection = 'column';
+
+                // Force full width/height on content div, overriding markdown-body
+                CONTENT_DIV.style.maxWidth = 'none';
+                CONTENT_DIV.style.width = '100%';
+                CONTENT_DIV.style.height = '100%';
+                CONTENT_DIV.style.margin = '0';
+                CONTENT_DIV.style.display = 'flex';
+                CONTENT_DIV.style.flexDirection = 'column';
+
+                CONTENT_DIV.innerHTML = `
+                    <div style="padding: 1rem 2rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; background: rgba(5, 5, 7, 0.95);">
+                        <span style="font-weight: 600; color: var(--text-primary);">API Reference</span>
+                        <a href="https://api.veloo.io/v1/docs" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+                            Open in new tab 
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                    <iframe 
+                        src="https://api.veloo.io/v1/docs" 
+                        style="width: 100%; flex: 1; border: none; background: white;"
+                        title="API Reference"
+                    ></iframe>
+                `;
+                return;
+            }
+
+            // Reset padding/overflow for normal docs
+            mainContent.style.padding = '';
+            mainContent.style.overflow = '';
+            mainContent.style.display = '';
+            mainContent.style.flexDirection = '';
+
+            // Reset content div styles
+            CONTENT_DIV.style.maxWidth = '';
+            CONTENT_DIV.style.width = '';
+            CONTENT_DIV.style.margin = '';
+            CONTENT_DIV.style.display = '';
+            CONTENT_DIV.style.flexDirection = '';
+            CONTENT_DIV.style.height = '100%';
 
             try {
                 const response = await fetch(targetFile);
@@ -377,11 +434,10 @@
         </div>
         <ul class="nav-links">
             <li class="nav-item"><a href="#home" class="nav-link" data-src="/docs/index.md">Home</a></li>
-            <li class="nav-item"><a href="#ae" class="nav-link" data-src="/docs/ae.md">After Effects</a></li>
             <li class="nav-item"><a href="#tutorials" class="nav-link" data-src="/docs/tutorials.md">Tutorials</a></li>
-            <li class="nav-item"><a href="#api" class="nav-link" data-src="/docs/api-reference.md">API Reference</a>
-            </li>
-            <li class="nav-item"><a href="#about" class="nav-link" data-src="/docs/about.md">About</a></li>
+            <li class="nav-item"><a href="#ae" class="nav-link" data-src="/docs/ae.md">After Effects</a></li>
+            <li class="nav-item"><a href="#fonts" class="nav-link" data-src="/docs/fonts.md">Supported Fonts</a></li>
+            <li class="nav-item"><a href="#api" class="nav-link" data-src="API">API Reference</a></li>
         </ul>
         <a href="index.html" class="back-link">
             ← Back to Landing
@@ -389,7 +445,7 @@
     </nav>
 
     <main class="main-content">
-        <div id="content" class="markdown-body">
+        <div id="content" class="markdown-body" style="height: 100%;">
             <div class="loading">Loading documentation...</div>
         </div>
     </main>
