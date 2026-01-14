@@ -1,5 +1,5 @@
 # Adobe After Effects features support table.
-Please note, that the features marked "No" are under development or planned to be. Features marked "Unsupported"
+Please note that the features marked "No" are under development or planned to be. Features marked "Unsupported"
 are not planned to be added to the rendering engine.
 
 ### Layer types
@@ -9,7 +9,7 @@ are not planned to be added to the rendering engine.
 | Image | Yes | |
 | Text | Yes | |
 | Shape | Yes | |
-| Video | Yes | mp4(h264/h265) only |
+| Video | Yes | MP4 (H.264/H.265) only |
 | Null | Yes | |
 | Camera | Yes | 1 and 2 nodes |
 | Composition | Yes | |

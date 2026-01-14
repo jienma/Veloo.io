@@ -1,6 +1,6 @@
 # Supported fonts list
 
-Per font family name we support Bold,Black,Italic and Regular styles if provided by that font.
+Per font family name we support Bold, Black, Italic and Regular styles if provided by that font.
 
  
 | Font Family | Font Family |

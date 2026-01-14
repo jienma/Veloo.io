@@ -1,6 +1,6 @@
 # Getting Started Tutorial
 
-## Part 1:Exporting content from Adobe AfterEffects
+## Part 1: Exporting content from Adobe After Effects
 
 Watch the video:
 
@@ -35,7 +35,7 @@ You can find it in the **Creative Cloud Desktop App** under the **Plugins** sect
 
 1. Open your AE project.  
 2. Make active the **composition** you want to export in the viewport.  
-3. Open the **Bodymovin panel**, and select the target composition from the list of all compositions in the project.
+3. Open the **Bodymovin panel** and select the target composition from the list of all compositions in the project.
 
 ![Selecting a composition to export in the bodymovin plugin UI](images/select_comp_bm.JPG)
 
@@ -58,6 +58,7 @@ If your composition contains **Text layers**, you must adjust Bodymovin’s text
 
 **Important note regarding fonts:** Due to strict copyright regulations around font usage (including fonts that may be unlicensed or licensed under unsuitable terms and conditions), we **do not allow uploading font files**. You must use font families from the list of supported fonts provided by the platform. All fonts we provide can be downloaded for free from [Google Fonts](https://fonts.google.com/).  
 [Here](fonts.md) you can find the list of all font families currently supported by Velocity Platform.
+
 ---
 
 ### 4. Export the Composition

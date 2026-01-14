@@ -3,9 +3,9 @@
 
 
 Velocity Platform is an **API-driven motion graphics video rendering platform**, designed from the ground up for **blazing performance** (on average 10× faster than Adobe After Effects) and **massive scalability**.
-At the core of the engine is a GPU-accelerated,sophisticated rendering pipeline built on top of modern, industry-standard low-level graphics and video encoding APIs.
+At the core of the engine is a GPU-accelerated, sophisticated rendering pipeline built on top of modern, industry-standard low-level graphics and video encoding APIs.
 
-The API enables server-side rendering of videos from Adobe After Effects (AE) motion templates exported as Lottie files. While Velocity uses Lottie Files format as a base, it has significantly fewer limitations than standard Lottie implementations(see the [AE Compatibility](ae.md) page).
+The API enables server-side rendering of videos from Adobe After Effects (AE) motion templates exported as Lottie files. While Velocity uses Lottie Files format as a base, it has significantly fewer limitations than standard Lottie implementations (see the [AE Compatibility](ae.md) page).
 Our development team is continuously extending support for advanced AE features and visual effects, with the goal of reaching core feature parity with AE in the near future.  
 
 *Note: Full AE feature coverage is not planned, as rendering speed remains a top priority for the product.*
@@ -46,7 +46,7 @@ For more details, see the [Getting Started](tutorials.md) section.
 
 **Fonts**
 
-Velocity platform  **does not allow uploading font files**. You must use font families from the list of supported fonts provided by the platform. All fonts we provide can be downloaded for free from [Google Fonts](https://fonts.google.com/).  
+Velocity platform **does not allow uploading font files**. You must use font families from the list of supported fonts provided by the platform. All fonts we provide can be downloaded for free from [Google Fonts](https://fonts.google.com/).
 [Here](fonts.md) you can find the list of all font families currently supported by Velocity Platform.
 
 
