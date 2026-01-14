@@ -164,7 +164,7 @@ are not planned to be added to the rendering engine.
 ### Effects
 | Effects | Supported | Notes |
 | :--- | :--- | :--- |
-| Motion blur | Yes | |
+| Motion blur | No | |
 | Gaussian blur | Yes | |
 | Corner Pin | No | |
 | Fill | Yes | AKA Color fill |

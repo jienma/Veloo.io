@@ -132,7 +132,7 @@ Image Styles,Supported,Notes
 -----------------,No,No image styles supported
 ,,
 Effects,Supported,Notes
-Motion blur,Yes,
+Motion blur,No,
 Gaussian blur,Yes,
 Corner Pin,No,
 Fill,Yes,AKA Color fill

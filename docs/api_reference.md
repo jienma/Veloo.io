@@ -338,7 +338,7 @@ Poll this endpoint to monitor template processing progress after upload.
 | 404 | Template job not found or not owned by current user |
 | 401 | Missing or invalid API key |
 
-### Example usage
+### Examples
 
 [code-tabs: cURL, JS (Fetch), JS (Axios)]
 ```bash
@@ -610,9 +610,7 @@ Stream the audio file directly to your client in the original format it was uplo
 | 404 | Audio not found |
 | 401 | Missing or invalid API key |
 
-### Download Examples
-
-### Example usage
+### Examples
 
 [code-tabs: cURL, JS (Fetch), JS (Axios)]
 ```bash
@@ -830,7 +828,7 @@ Render a template directly without a campaign.
 - `encoderConfig.level`: Codec level
 - `customizationMap`: Array of layer replacement customizations
 
-### Request Body Examples
+### Request Body Configuration
 
 **Campaign Mode:**
 ```json
