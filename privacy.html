@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Velocity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-foreground: #431407;
+            --background: #050507;
+            --foreground: #fafafa;
+            --card: #0a0a0d;
+            --card-elevated: #0f0f13;
+            --border: #1a1a1f;
+            --muted: #0d0d10;
+            --muted-foreground: #71717a;
+            --text-primary: #fafafa;
+            --text-muted: #a1a1aa;
+            --glow: rgba(249, 115, 22, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Background Patterns */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at 50% 0%,
+                    rgba(249, 115, 22, 0.08) 0%,
+                    rgba(249, 115, 22, 0.03) 30%,
+                    transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .page {
+            background: var(--card);
+            padding: 80px 100px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow:
+                0 0 0 1px rgba(249, 115, 22, 0.05),
+                0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent);
+        }
+
+        /* Typography based on Google Doc & Website Theme */
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to bottom right, #fff, #a1a1aa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-header {
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 3rem 0 1.25rem;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+            border-left: 3px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .sig-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .sig-line {
+            margin: 1.75rem 0;
+            color: var(--text-muted);
+        }
+
+        .underline {
+            display: inline-block;
+            border-bottom: 1px solid var(--border);
+            min-width: 280px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 50px 30px;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="/" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" style="width: 18px; height: 18px;">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Homepage
+        </a>
+
+        <article class="page">
+            <h1>Velocity Platform Privacy Policy</h1>
+            <div class="doc-header">VELOCITY PLATFORM PRIVACY POLICY<br>LAST UPDATED: JANUARY 14, 2026</div>
+
+            <p>Veloo Ltd. ("Company," "we," or "us") is committed to protecting the privacy of our business customers.
+                This
+                Privacy Policy explains how we collect, use, and share information when you participate in the Velocity
+                Platform pilot program. This Privacy Policy should be read in conjunction with our Terms of Service.</p>
+
+            <h2>1. INFORMATION WE COLLECT</h2>
+            <ul>
+                <li><strong>Voluntary Provision of Data:</strong> You are not legally required to provide us with your
+                    personal or business information. However, providing this information is necessary to participate in
+                    the
+                    Velocity Platform pilot program.</li>
+                <li><strong>Account Information:</strong> We collect information provided during registration, such as
+                    business name, email address, and contact details.</li>
+                <li><strong>Technical Data:</strong> We collect API usage data, including IP addresses, rendering
+                    volumes,
+                    and log files.</li>
+                <li><strong>Cookies and Similar Technologies:</strong> We use strictly necessary session cookies and
+                    secure
+                    authentication tokens to maintain your session and protect the security of the AWS infrastructure.
+                    We do
+                    not use advertising cookies or third-party tracking technologies. You may configure your browser to
+                    reject cookies, but this may prevent you from accessing the Services.</li>
+                <li><strong>Customer Materials:</strong> We process files you upload (Lottie .json, images, video,
+                    audio)
+                    solely to perform the rendering services.</li>
+            </ul>
+
+            <h2>2. HOW WE USE YOUR INFORMATION & LEGAL BASIS</h2>
+            <p>We use your information for the following purposes and based on the following legal grounds (for EEA, UK,
+                Switzerland, and Brazil users):</p>
+            <ul>
+                <li><strong>Service Delivery (Contract Performance):</strong> To provide, maintain, and optimize the
+                    Rendering as a Service (RaaS) platform and process Customer Materials.</li>
+                <li><strong>Pilot Management (Contract Performance):</strong> To monitor your 24-hour rendering budget
+                    and
+                    API key status.</li>
+                <li><strong>Service Improvement & Pilot Analysis (Legitimate Interests):</strong> To analyze usage
+                    patterns,
+                    test system performance, and improve the accuracy and efficiency of our rendering technologies
+                    during
+                    the pilot program. This includes using aggregated or de-identified data to enhance our internal
+                    algorithms and infrastructure.</li>
+                <li><strong>Security (Legitimate Interests):</strong> To detect and prevent unauthorized access,
+                    malicious
+                    misuse, or attacks on our infrastructure.</li>
+                <li><strong>Communication (Legitimate Interests):</strong> To contact you regarding pilot updates,
+                    technical
+                    support, or changes to this policy.</li>
+                <li><strong>Legal Compliance (Legal Obligation):</strong> Disclosing information when required by law or
+                    valid legal process.</li>
+            </ul>
+
+            <h2>3. DATA SHARING AND DISCLOSURE</h2>
+            <ul>
+                <li><strong>Cloud Infrastructure:</strong> We utilize Amazon Web Services (AWS) as our primary
+                    sub-processor
+                    for data storage and processing.</li>
+                <li><strong>Legal Requirements:</strong> We may disclose information if required by law or in response
+                    to
+                    valid requests by public authorities.</li>
+                <li><strong>No Sale of Data:</strong> Company does not sell your personal or business information to
+                    third
+                    parties for monetary consideration. We only share information with service providers necessary to
+                    operate the Velocity Platform.</li>
+                <li><strong>Controller / Processor Relationship:</strong> To the extent that Company processes Personal
+                    Data
+                    on behalf of Customer, the parties acknowledge that Customer is the Data Controller and Company is
+                    the
+                    Data Processor. If you require a Data Processing Addendum (DPA) to comply with GDPR, UK GDPR, LGPD,
+                    or
+                    other privacy regulations, please contact us at info@veloo.io prior to uploading any personal data.
+                </li>
+            </ul>
+
+            <h2>4. DATA SECURITY, RETENTION & BREACH NOTIFICATION</h2>
+            <ul>
+                <li><strong>Security Measures:</strong> We implement physical, technical, and administrative measures
+                    designed to protect your information from unauthorized access.</li>
+                <li><strong>Security Incident Notification:</strong> In the event of a data breach affecting your
+                    personal
+                    information, we will notify you without undue delay and in accordance with applicable law.
+                    Notification
+                    will be sent to the email address associated with your account.</li>
+                <li><strong>Retention of Customer Materials:</strong> Consistent with our Terms of Service, all Customer
+                    Materials and Rendered Content are subject to a Rolling Retention policy and will be deleted from
+                    our
+                    systems thirty (30) days after their creation, regardless of whether your pilot participation is
+                    still
+                    active.</li>
+                <li><strong>Retention of Account Information:</strong> We retain Account Information (business name,
+                    email)
+                    for up to 90 days following the conclusion of the pilot for administrative and legal compliance
+                    purposes, after which it will be deleted unless retention is required by law.</li>
+                <li><strong>Retention of Technical Data:</strong> Log files and API usage data are retained for up to 12
+                    months for security analysis and debugging purposes, then anonymized or deleted.</li>
+            </ul>
+
+            <h2>5. YOUR RIGHTS</h2>
+            <p>Depending on your jurisdiction (including Israel, the EEA, UK, Switzerland, Brazil, Australia, Canada,
+                and
+                the United States), you may have the following rights:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of personal information we hold about you (including details
+                    on
+                    third parties with whom data was shared).</li>
+                <li><strong>Rectification:</strong> Request correction of inaccurate or incomplete information.</li>
+                <li><strong>Deletion:</strong> Request deletion of your personal information, subject to legal
+                    obligations.
+                </li>
+                <li><strong>Restriction:</strong> Request that we limit processing of your information in certain
+                    circumstances.</li>
+                <li><strong>Portability:</strong> Request your data in a structured, machine-readable format.</li>
+                <li><strong>Objection:</strong> Object to processing based on legitimate interests.</li>
+                <li><strong>Objection to Automated Processing:</strong> You have the right to object to decisions based
+                    solely on automated processing or profiling if it produces legal effects concerning you.</li>
+                <li><strong>Opt-Out of Data "Sharing":</strong> Residents of certain jurisdictions (like California,
+                    Virginia, Colorado, Connecticut, and Utah) have the right to opt-out of the "sharing" of their
+                    personal
+                    information for cross-context behavioral advertising or certain internal analytics.</li>
+                <li><strong>Withdrawal of Consent:</strong> Where processing is based on consent, you may withdraw it at
+                    any
+                    time (applicable in Canada, Brazil, UK/EEA).</li>
+                <li><strong>Complaint:</strong> Lodge a complaint with a supervisory authority in your jurisdiction
+                    (e.g.,
+                    the ICO in the UK, OAIC in Australia, or Privacy Commissioner in Canada).</li>
+            </ul>
+            <p>To exercise these rights, contact us at info@veloo.io. We will respond within 30 days. If we deny your
+                request, residents of certain US states (e.g., Virginia, Colorado) have the right to appeal our decision
+                by
+                contacting us.</p>
+
+            <h2>6. CHILDREN'S PRIVACY</h2>
+            <p>The Services are not intended for individuals under the age of 18. We do not knowingly collect personal
+                information from anyone under 18. If we become aware that we have collected personal information from a
+                minor, we will take steps to delete such information promptly.</p>
+
+            <h2>7. DATA TRANSFERS</h2>
+            <p>Your information will be processed in the United States (via AWS) and in Israel. Israel is recognized by
+                the
+                European Commission and the United Kingdom as providing an adequate level of data protection. By using
+                the
+                Services, you consent to the transfer of information to these jurisdictions. Australian users
+                specifically
+                acknowledge that while we take reasonable steps to protect your data, these jurisdictions may have
+                different
+                privacy laws than Australia.</p>
+
+            <h2>8. CHANGES TO THIS POLICY</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of material changes by email at
+                least
+                fourteen (14) days before they take effect. The "Last Updated" date at the top of this Policy indicates
+                when
+                it was last revised. Your continued use of the Services after changes take effect constitutes acceptance
+                of
+                the revised Policy.</p>
+
+            <h2>9. CONTACT US</h2>
+            <p>For any questions regarding this Privacy Policy, please contact us at info@veloo.io.</p>
+
+            <h2>10. US STATE PRIVACY RIGHTS</h2>
+            <p>If you are a resident of California, Virginia, Colorado, Connecticut, Utah, or other US states with
+                effective
+                privacy laws, specific rights apply to your personal information:</p>
+            <ul>
+                <li><strong>Right to Know and Access:</strong> You may request details about the categories of personal
+                    information we collect, the sources from which we collect it, the business or commercial purpose for
+                    collecting it, and the third parties with whom we share it.</li>
+                <li><strong>Right to Delete:</strong> You have the right to request the deletion of your personal
+                    information, subject to certain exceptions (e.g., if we need to retain the data to complete a
+                    transaction or comply with a legal obligation).</li>
+                <li><strong>Right to Correct:</strong> You have the right to request that we correct inaccurate personal
+                    information we hold about you.</li>
+                <li><strong>"Do Not Sell or Share":</strong> We do not "sell" your personal information for monetary
+                    value.
+                    Furthermore, we do not "share" your personal information for cross-context behavioral advertising
+                    purposes. We use your data strictly for internal business purposes, such as service improvement and
+                    analytics, which is recognized as a business purpose under applicable laws.</li>
+                <li><strong>Non-Discrimination:</strong> We will not discriminate against you for exercising your
+                    privacy
+                    rights.</li>
+                <li><strong>Authorized Agent:</strong> You may designate an authorized agent to make a request on your
+                    behalf. We may require proof of your authorization and verification of your identity.</li>
+            </ul>
+
+            <section class="signature-section">
+                <div class="sig-header">ACCEPTANCE AND SIGNATURE</div>
+                <p><strong>BY SIGNING BELOW, THE PARTIES ACKNOWLEDGE THAT THEY HAVE READ, UNDERSTOOD, AND AGREE TO BE
+                        BOUND
+                        BY THE TERMS OF THIS AGREEMENT.</strong></p>
+
+                <div class="sig-line"><strong>FOR THE RECEIVING PARTY (CUSTOMER):</strong></div>
+                <div class="sig-line">Company Name: <span class="underline"></span></div>
+                <div class="sig-line">Name of Signatory: <span class="underline"></span></div>
+                <div class="sig-line">Role/Title: <span class="underline"></span></div>
+                <div class="sig-line">Signature: <span class="underline"></span> Date: <span class="underline"></span>
+                </div>
+            </section>
+        </article>
+    </div>
+</body>
+
+</html>

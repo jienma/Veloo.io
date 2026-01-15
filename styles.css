@@ -32,12 +32,18 @@ body {
     background-size: 40px 40px;
 }
 
-/* Subtle Vignette */
+/* Subtle Vignette & Concentric Rings */
 body::after {
     content: '';
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 100%);
+    background:
+        repeating-radial-gradient(circle at center,
+            transparent 0,
+            transparent 120px,
+            rgba(249, 115, 22, 0.05) 120px,
+            rgba(249, 115, 22, 0.05) 121px),
+        radial-gradient(circle at center, transparent 0%, var(--bg-dark) 100%);
     pointer-events: none;
     z-index: -1;
 }
@@ -442,4 +448,64 @@ footer {
     color: var(--primary);
     margin-bottom: 1rem;
     display: block;
+}
+
+/* Legal Card Styles for Invitation Flow */
+.legal-links-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.legal-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    width: 100%;
+}
+
+.legal-card:hover {
+    background: rgba(249, 115, 22, 0.05);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.legal-card svg {
+    width: 32px !important;
+    height: 32px !important;
+    color: var(--primary) !important;
+    stroke: var(--primary) !important;
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+}
+
+.legal-card:hover svg {
+    transform: scale(1.1);
+}
+
+.legal-card span {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.legal-card .view-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+    .legal-links-container {
+        grid-template-columns: 1fr;
+    }
 }

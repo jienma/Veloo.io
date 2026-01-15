@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#f97316">
     <title>Velocity | Private Beta</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=cachebust_002">
+    <link rel="stylesheet" href="styles.css?v=cachebust_003">
 </head>
 
 <body>
@@ -102,6 +102,92 @@
         </div>
     </div>
 
+    <!-- Terms of Use Modal -->
+    <div class="modal-backdrop" id="termsModal">
+        <div class="modal">
+            <div id="termsFormContent">
+                <div class="modal-header">
+                    <h2>Activate Access</h2>
+                    <p>Please review and accept our documents to activate your API access.</p>
+                </div>
+
+                <div class="legal-links-container">
+                    <a href="terms.html" target="_blank" class="legal-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Terms of Service</span>
+                        <div class="view-label">View Document</div>
+                    </a>
+                    <a href="privacy.html" target="_blank" class="legal-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <span>Privacy Policy</span>
+                        <div class="view-label">View Document</div>
+                    </a>
+                </div>
+
+                <div class="form-group"
+                    style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem; background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-color);">
+                    <input type="checkbox" id="acceptTermsCheckbox"
+                        style="width: 22px; height: 22px; accent-color: var(--primary); cursor: pointer; margin-top: 0.1rem; border-radius: 4px;">
+                    <label for="acceptTermsCheckbox"
+                        style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; cursor: pointer;">
+                        I confirm that I have read and agree to be bound by the <a href="terms.html" target="_blank"
+                            style="color: var(--primary); font-weight: 500; text-decoration: none;">Terms of Service</a>
+                        and the <a href="privacy.html" target="_blank"
+                            style="color: var(--primary); font-weight: 500; text-decoration: none;">Privacy
+                            Policy</a>.
+                    </label>
+                </div>
+
+                <button id="acceptTermsBtn" class="btn btn-primary btn-block" disabled
+                    style="width: 100%; height: 50px;">
+                    Accept & Activate API Key
+                </button>
+            </div>
+
+            <div id="termsSuccessContent" class="success-message">
+                <div class="modal-header">
+                    <div
+                        style="width: 60px; height: 60px; background: rgba(34, 197, 94, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; border: 1px solid rgba(34, 197, 94, 0.2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" style="width: 30px; height: 30px;">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h2>Activation Successful</h2>
+                    <p>Welcome to Velocity. Copy and store your API key safely. You will not be able to retrieve it
+                        again.</p>
+                </div>
+
+                <div
+                    style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 2rem; border-radius: 12px; margin: 2rem 0; position: relative; text-align: center;">
+                    <div
+                        style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; font-weight: 600;">
+                        Your Deployment API Key</div>
+                    <code id="apiKeyDisplay"
+                        style="font-family: monospace; color: var(--primary); font-size: 1.1rem; word-break: break-all; display: block; background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(249, 115, 22, 0.2);">API_KEY_HERE</code>
+                    <button onclick="copyApiKey()" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;">
+                        Copy API Key
+                    </button>
+                </div>
+
+                <button class="btn btn-secondary btn-block" onclick="window.location.href='/'"
+                    style="padding: 1rem; border-radius: 8px;">
+                    Enter Dashboard
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const modal = document.getElementById('accessModal');
         const openBtn = document.getElementById('openAccessBtn');
@@ -181,6 +267,85 @@
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
+            }
+        });
+
+        // ===== Invitation Flow & Terms Acceptance =====
+        const termsModal = document.getElementById('termsModal');
+        const acceptTermsCheckbox = document.getElementById('acceptTermsCheckbox');
+        const acceptTermsBtn = document.getElementById('acceptTermsBtn');
+        const termsFormContent = document.getElementById('termsFormContent');
+        const termsSuccessContent = document.getElementById('termsSuccessContent');
+        const apiKeyDisplay = document.getElementById('apiKeyDisplay');
+
+        const API_BASE_URL = 'http://localhost:5000';
+
+        function copyApiKey() {
+            const key = apiKeyDisplay.textContent;
+            navigator.clipboard.writeText(key).then(() => {
+                const copyBtn = document.querySelector('#termsSuccessContent button[onclick="copyApiKey()"]');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => copyBtn.textContent = originalText, 2000);
+            });
+        }
+
+        function openTermsModal() {
+            termsModal.classList.add('active');
+        }
+
+        function closeTermsModal() {
+            termsModal.classList.remove('active');
+            const url = new URL(window.location);
+            url.searchParams.delete('token');
+            url.searchParams.delete('type');
+            window.history.replaceState({}, '', url);
+        }
+
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+            const type = params.get('type');
+            if (token && type === 'invite') {
+                openTermsModal();
+            }
+        });
+
+        acceptTermsCheckbox.addEventListener('change', () => {
+            acceptTermsBtn.disabled = !acceptTermsCheckbox.checked;
+        });
+
+        acceptTermsBtn.addEventListener('click', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+            if (!token) return;
+
+            const originalText = acceptTermsBtn.textContent;
+            acceptTermsBtn.textContent = 'Activating...';
+            acceptTermsBtn.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/accept-terms-with-token`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    apiKeyDisplay.textContent = data.apiKey;
+                    termsFormContent.style.display = 'none';
+                    termsSuccessContent.style.display = 'block';
+                } else {
+                    const data = await response.json();
+                    alert(data.error || "Failed to activate access. The link may be expired.");
+                    acceptTermsBtn.textContent = originalText;
+                    acceptTermsBtn.disabled = false;
+                }
+            } catch (error) {
+                alert("Connection error. Please try again later.");
+                acceptTermsBtn.textContent = originalText;
+                acceptTermsBtn.disabled = false;
             }
         });
     </script>

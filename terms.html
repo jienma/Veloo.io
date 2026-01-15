@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Velocity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-foreground: #431407;
+            --background: #050507;
+            --foreground: #fafafa;
+            --card: #0a0a0d;
+            --card-elevated: #0f0f13;
+            --border: #1a1a1f;
+            --muted: #0d0d10;
+            --muted-foreground: #71717a;
+            --text-primary: #fafafa;
+            --text-muted: #a1a1aa;
+            --glow: rgba(249, 115, 22, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Background Patterns */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at 50% 0%,
+                    rgba(249, 115, 22, 0.08) 0%,
+                    rgba(249, 115, 22, 0.03) 30%,
+                    transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .page {
+            background: var(--card);
+            padding: 80px 100px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow:
+                0 0 0 1px rgba(249, 115, 22, 0.05),
+                0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent);
+        }
+
+        /* Typography based on Google Doc & Website Theme */
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to bottom right, #fff, #a1a1aa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-header {
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 3rem 0 1.25rem;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+            border-left: 3px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .sig-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .sig-line {
+            margin: 1.75rem 0;
+            color: var(--text-muted);
+        }
+
+        .underline {
+            display: inline-block;
+            border-bottom: 1px solid var(--border);
+            min-width: 280px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 50px 30px;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <a href="/" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" style="width: 18px; height: 18px;">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Homepage
+        </a>
+
+        <article class="page">
+            <h1>Velocity Platform Terms of Service</h1>
+            <div class="doc-header">VELOCITY PLATFORM TERMS OF SERVICE<br>LAST UPDATED: JANUARY 14, 2026</div>
+
+            <p>PLEASE READ THIS TERMS OF SERVICE AGREEMENT ("AGREEMENT") CAREFULLY. THIS IS A LEGALLY BINDING AGREEMENT
+                BETWEEN YOU (THE "CUSTOMER" OR "USER") AND VELOO LTD., AN ISRAELI CORPORATION ("COMPANY," "WE," OR
+                "US"). BY
+                ACCESSING THE VELOCITY PLATFORM REST API, UTILIZING AN API KEY, OR USING OUR AWS-DEPLOYED RENDERING AS A
+                SERVICE (RaaS) INFRASTRUCTURE (COLLECTIVELY, THE "SERVICES"), YOU AGREE TO BE BOUND BY THESE TERMS. IF
+                YOU
+                DO NOT AGREE, YOU MUST IMMEDIATELY CEASE ALL USE OF THE SERVICES.</p>
+
+            <h2>1. DESCRIPTION OF SERVICES & MODIFICATIONS</h2>
+            <p>Velocity Platform provides a REST API-driven, AWS-deployed Rendering as a Service (RaaS) infrastructure.
+            </p>
+            <ul>
+                <li><strong>Service Modification Rights:</strong> Company reserves the right to modify, update, suspend,
+                    or
+                    discontinue any part of the Services at any time, with or without notice, for any reason including
+                    maintenance, security, or business purposes. Company shall not be liable to you or any third party
+                    for
+                    any modification, suspension, or discontinuation of the Services.</li>
+            </ul>
+
+            <h2>2. PILOT PROGRAM ACCESS, CONFIDENTIALITY & FEEDBACK</h2>
+            <ul>
+                <li><strong>Invitation Only & B2B:</strong> Access is granted via a unique, non-transferable API key
+                    solely
+                    for a pre-release, closed beta pilot program.</li>
+                <li><strong>User Eligibility:</strong> You represent and warrant that you are at least 18 years of age
+                    and
+                    have the full right, power, and authority to enter into this Agreement on behalf of the business
+                    entity
+                    you represent.</li>
+                <li><strong>Rendering Budget:</strong> Customer is allocated a free rendering budget. Once this
+                    threshold is
+                    met, the API key will be deactivated.</li>
+                <li><strong>Confidentiality:</strong> Customer acknowledges that the Services contain pre-release,
+                    confidential information and trade secrets of Company. Customer agrees not to disclose, publish, or
+                    share details regarding the Services' performance, features, or bugs (including screenshots or
+                    benchmark
+                    data) with any third party without Company's prior written consent.</li>
+                <li><strong>Feedback License:</strong> You may provide suggestions, comments, or other feedback
+                    regarding
+                    the Services ("Feedback"). You hereby grant Company a worldwide, perpetual, irrevocable,
+                    royalty-free
+                    license to use, modify, and exploit such Feedback for any purpose.</li>
+            </ul>
+
+            <h2>3. CUSTOMER MATERIALS AND PROHIBITED CONTENT</h2>
+            <ul>
+                <li><strong>Customer Materials:</strong> Company never obtains any ownership over your Customer
+                    Materials.
+                    You retain all right, title, and interest in files uploaded by you.</li>
+                <li><strong>License to Company:</strong> Customer grants Company a worldwide, royalty-free,
+                    non-exclusive
+                    license to use, host, copy, and process Customer Materials solely for the purposes of providing the
+                    Services, internal testing, debugging, and platform optimization during the pilot.</li>
+                <li><strong>STRICT PROHIBITION ON FONTS: THE UPLOADING OF ANY FONT FILES (INCLUDING BUT NOT LIMITED TO
+                        .TTF,
+                        OTF, WOFF, AND JSON-WRAPPED FONT DATA) IS STRICTLY PROHIBITED. VIOLATION WILL RESULT IN
+                        IMMEDIATE
+                        TERMINATION.</strong></li>
+                <li><strong>Prohibited Content:</strong> You agree strictly NOT to upload, render, or distribute any
+                    material that:
+                    <br><br>
+                    • <strong>Exploits Minors:</strong> Depicts, promotes, or incites the abuse, exploitation, or
+                    sexualization of children (CSAM). We have a zero-tolerance policy for CSAM and will report such
+                    content
+                    to relevant authorities.<br>
+                    • <strong>Nudity & Sexual Content:</strong> Contains sexually explicit material, pornography, or
+                    nudity.<br>
+                    • <strong>Violence & Hate:</strong> Promotes violence, incites hatred, or depicts gratuitous
+                    gore.<br>
+                    • <strong>Malicious & Illegal:</strong> Contains software viruses, malware, is defamatory, unlawful,
+                    or
+                    violates third-party rights.
+                </li>
+                <li><strong>Right to Review & Remove:</strong> Company reserves the right to review Customer Materials
+                    and
+                    remove any content that violates this Section without prior notice.</li>
+            </ul>
+
+            <h2>4. DATA RETENTION AND TERMINATION</h2>
+            <ul>
+                <li><strong>Account Deletion:</strong> Upon the conclusion of the pilot or exhaustion of the rendering
+                    budget, Company will delete the Customer account and all associated data from its AWS cloud storage.
+                </li>
+                <li><strong>Backup & Download Responsibility:</strong> Company is under no obligation to store Rendered
+                    Content long-term. Customer is solely responsible for backing up content immediately. Unless
+                    otherwise
+                    agreed in writing, any Rendered Content remaining on our servers will be permanently deleted thirty
+                    (30)
+                    days after its creation ("Rolling Retention"), regardless of the Pilot Program duration.</li>
+                <li><strong>Pilot-to-Commercial Transition:</strong> If Company offers a commercial version of the
+                    Services
+                    following the pilot program, Company will notify you at least fourteen (14) days prior to the
+                    transition. Your continued access will require acceptance of the then-current commercial terms and
+                    payment of applicable fees. Nothing in this Agreement obligates Company to offer a commercial
+                    version or
+                    to provide you with continued access.</li>
+            </ul>
+
+            <h2>5. INTELLECTUAL PROPERTY RIGHTS</h2>
+            <ul>
+                <li><strong>Company IP:</strong> Company is the sole owner of the Velocity Platform, including the RaaS
+                    infrastructure, API architecture, and proprietary rendering technology.</li>
+                <li><strong>Restrictions:</strong> You shall not attempt to decompile, disassemble, reverse engineer, or
+                    otherwise discern the source code or architecture of the Services.</li>
+                <li><strong>Rendered Content:</strong> Subject to these Terms, Company grants Customer ownership of the
+                    specific video files produced by the Platform during the pilot.</li>
+            </ul>
+
+            <h2>6. EXPORT CONTROL AND SANCTIONS</h2>
+            <p>You represent and warrant that you are not located in, under the control of, or a national or resident of
+                any
+                country subject to a United States, United Kingdom, European Union, or Israeli government embargo, or
+                listed
+                on any government list of prohibited or restricted parties.</p>
+
+            <h2>7. DISCLAIMER OF WARRANTIES ("AS IS")</h2>
+            <p>ALL SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTY OF ANY KIND. COMPANY
+                EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A
+                PARTICULAR PURPOSE, OR NON-INFRINGEMENT. FOR AUSTRALIAN USERS: NOTHING IN THIS AGREEMENT EXCLUDES,
+                RESTRICTS, OR MODIFIES ANY GUARANTEE, RIGHT, OR REMEDY UNDER THE AUSTRALIAN CONSUMER LAW WHICH CANNOT BE
+                EXCLUDED.</p>
+
+            <h2>8. LIMITATION OF LIABILITY</h2>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, COMPANY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+                SPECIAL, OR
+                CONSEQUENTIAL DAMAGES. IN NO EVENT SHALL COMPANY'S AGGREGATE LIABILITY FOR ALL CLAIMS EXCEED $50.00 USD.
+            </p>
+
+            <h2>9. INDEMNIFICATION</h2>
+            <p>You agree to defend, indemnify, and hold harmless Company from any claims arising out of your use of the
+                Services; your violation of these Terms; your violation of the "No Fonts" or "Prohibited Content"
+                restrictions; or any claim that Customer Materials infringe third-party rights.</p>
+
+            <h2>10. GOVERNING LAW, JURISDICTION & CLASS ACTION WAIVER</h2>
+            <ul>
+                <li><strong>Governing Law:</strong> These Terms are governed by the laws of the State of Israel, subject
+                    to
+                    any mandatory local consumer laws that cannot be excluded by contract (such as the UK Consumer
+                    Rights
+                    Act, Quebec Consumer Protection Act, or Australian Consumer Law).</li>
+                <li><strong>Jurisdiction:</strong> Any legal action will be brought exclusively in the courts located in
+                    Tel
+                    Aviv, Israel.</li>
+                <li><strong>Class Action Waiver:</strong> You agree that any claim shall be brought in your individual
+                    capacity, and not as a plaintiff or class member in any purported class proceeding.</li>
+            </ul>
+
+            <h2>11. NOTICE OF COPYRIGHT INFRINGEMENT (DMCA)</h2>
+            <p>If you believe material on the Services infringes your copyright, you may submit a notification pursuant
+                to
+                the DMCA by providing our Copyright Agent (info@veloo.io) with the following: (a) Signature of the
+                rights
+                holder; (b) Identification of the work; (c) Identification of the infringing material; (d) Contact
+                information; (e) Statement of good faith belief; and (f) Statement of accuracy under penalty of perjury.
+            </p>
+
+            <h2>12. FORCE MAJEURE</h2>
+            <p>Company shall not be liable for any delay or failure to perform resulting from causes outside its
+                reasonable
+                control, including, but not limited to, acts of God, war, terrorism, AWS outages, or internet service
+                provider failures.</p>
+
+            <h2>13. PUBLICITY</h2>
+            <p>You agree that Company may identify you (by name and logo) as a Velocity Platform customer on Company's
+                website and promotional materials. You may revoke this right at any time by contacting info@veloo.io.
+            </p>
+
+            <h2>14. CHANGES TO THIS AGREEMENT</h2>
+            <p>Company reserves the right to modify this Agreement at any time. We will provide notice of material
+                changes
+                by email at least fourteen (14) days before such changes take effect. Your continued use of the Services
+                after the effective date constitutes acceptance of the modified terms.</p>
+
+            <h2>15. MISCELLANEOUS</h2>
+            <ul>
+                <li><strong>Severability:</strong> If any provision of this Agreement is held to be invalid or
+                    unenforceable, such provision shall be struck and the remaining provisions shall remain in full
+                    force
+                    and effect.</li>
+                <li><strong>Assignment:</strong> You may not assign or transfer this Agreement or any rights hereunder
+                    without Company's prior written consent. Company may assign this Agreement freely without
+                    restriction.
+                </li>
+                <li><strong>Notices:</strong> All notices under this Agreement shall be in writing and sent to
+                    info@veloo.io
+                    (for Company) or to the email address associated with your account (for Customer). Notices sent by
+                    email
+                    are deemed received twenty-four (24) hours after sending, provided no delivery failure notification
+                    is
+                    received by the sender.</li>
+                <li><strong>Waiver:</strong> The failure of Company to enforce any right or provision of this Agreement
+                    shall not constitute a waiver of such right or provision.</li>
+                <li><strong>Entire Agreement:</strong> This Agreement constitutes the entire agreement between you and
+                    Company regarding the Services and supersedes all prior or contemporaneous understandings.</li>
+            </ul>
+
+            <section class="signature-section">
+                <div class="sig-header">ACCEPTANCE AND SIGNATURE</div>
+                <p><strong>BY SIGNING BELOW, THE PARTIES ACKNOWLEDGE THAT THEY HAVE READ, UNDERSTOOD, AND AGREE TO BE
+                        BOUND
+                        BY THE TERMS OF THIS AGREEMENT.</strong></p>
+
+                <div class="sig-line"><strong>FOR THE RECEIVING PARTY (CUSTOMER):</strong></div>
+                <div class="sig-line">Company Name: <span class="underline"></span></div>
+                <div class="sig-line">Name of Signatory: <span class="underline"></span></div>
+                <div class="sig-line">Role/Title: <span class="underline"></span></div>
+                <div class="sig-line">Signature: <span class="underline"></span> Date: <span class="underline"></span>
+                </div>
+            </section>
+        </article>
+    </div>
+</body>
+
+</html>
