@@ -78,8 +78,9 @@
 
             const mainContent = document.querySelector('.main-content');
 
+            const footer = document.querySelector('footer');
+
             if (isApi) {
-                // Remove padding for full-screen iframe experience
                 // Remove padding for full-screen iframe experience
                 mainContent.style.padding = '0';
                 mainContent.style.overflow = 'hidden';
@@ -93,6 +94,9 @@
                 CONTENT_DIV.style.margin = '0';
                 CONTENT_DIV.style.display = 'flex';
                 CONTENT_DIV.style.flexDirection = 'column';
+
+                // Hide footer for full-screen experience
+                if (footer) footer.style.display = 'none';
 
                 // Structure for API content
                 CONTENT_DIV.innerHTML = `
@@ -155,10 +159,14 @@
             // Reset content div styles
             CONTENT_DIV.style.maxWidth = '';
             CONTENT_DIV.style.width = '';
+            CONTENT_DIV.style.height = ''; // Reset height to allow scrolling
             CONTENT_DIV.style.margin = '';
             CONTENT_DIV.style.display = '';
             CONTENT_DIV.style.flexDirection = '';
             CONTENT_DIV.style.flex = '1';
+
+            // Show footer
+            if (footer) footer.style.display = '';
 
             try {
                 const response = await fetch(targetFile);
